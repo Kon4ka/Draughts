@@ -1,0 +1,11 @@
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\bin\Debug\net5.0\Draughts.Core.deps.json
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\bin\Debug\net5.0\Draughts.Core.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\bin\Debug\net5.0\ref\Draughts.Core.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\bin\Debug\net5.0\Draughts.Core.pdb
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.AssemblyInfoInputs.cache
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.AssemblyInfo.cs
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.csproj.CoreCompileInputs.cache
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\ref\Draughts.Core.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.pdb

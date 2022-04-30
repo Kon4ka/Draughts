@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "Draughts.Grpc";
+
+package servertoclient;
+
+message IdentificationRequestCallback {
+	string message = 1;
+}
+
+service DraughtsCallbackService {
+	rpc IdentificationCallback(IdentificationRequestCallback) returns (google.protobuf.Empty);
+}

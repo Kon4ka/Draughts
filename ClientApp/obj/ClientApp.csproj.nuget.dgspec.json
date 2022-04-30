@@ -1,0 +1,147 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\ClientApp\\ClientApp.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\ClientApp\\ClientApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\ClientApp\\ClientApp.csproj",
+        "projectName": "ClientApp",
+        "projectPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\ClientApp\\ClientApp.csproj",
+        "packagesPath": "C:\\Users\\Kon4ka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\ClientApp\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kon4ka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {
+              "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\Draughts.ClientApp.Protobuf.csproj": {
+                "projectPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\Draughts.ClientApp.Protobuf.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\Draughts.ClientApp.Protobuf.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\Draughts.ClientApp.Protobuf.csproj",
+        "projectName": "Draughts.ClientApp.Protobuf",
+        "projectPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\Draughts.ClientApp.Protobuf.csproj",
+        "packagesPath": "C:\\Users\\Kon4ka\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Kon4ka\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.20.1, )"
+            },
+            "Grpc": {
+              "target": "Package",
+              "version": "[2.45.0, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.45.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.45.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.45.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

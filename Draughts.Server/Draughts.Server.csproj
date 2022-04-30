@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <Protobuf Include="..\Protos\clienttoserver.proto" GrpcServices="Server">
+		  <Link>Protos\clienttoserver.proto</Link>
+	  </Protobuf>
+	  <Protobuf Include="..\Protos\servertoclient.proto" GrpcServices="Client">
+		  <Link>Protos\servertoclient.proto</Link>
+	  </Protobuf>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
+  </ItemGroup>
+
+</Project>

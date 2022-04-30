@@ -1,0 +1,12 @@
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\bin\Debug\net5.0\Draughts.ClientApp.Protobuf.deps.json
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\bin\Debug\net5.0\Draughts.ClientApp.Protobuf.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\bin\Debug\net5.0\ref\Draughts.ClientApp.Protobuf.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\bin\Debug\net5.0\Draughts.ClientApp.Protobuf.pdb
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.csproj.AssemblyReference.cache
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.AssemblyInfoInputs.cache
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.AssemblyInfo.cs
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.csproj.CoreCompileInputs.cache
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\ref\Draughts.ClientApp.Protobuf.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.pdb

@@ -1,0 +1,2 @@
+obj\Debug\net5.0/Clienttoserver.cs \
+obj\Debug\net5.0/ClienttoserverGrpc.cs: ../Protos/clienttoserver.proto

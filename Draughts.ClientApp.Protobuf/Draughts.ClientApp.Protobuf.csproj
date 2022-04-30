@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Google.Protobuf" Version="3.20.1" />
+		<PackageReference Include="Grpc" Version="2.45.0" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.45.0" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.45.0" />
+		<PackageReference Include="Grpc.Tools" Version="2.45.0">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="..\Protos\clienttoserver.proto" GrpcServices="Client">
+			<Link>Protos\clienttoserver.proto</Link>
+		</Protobuf>
+		<Protobuf Include="..\Protos\servertoclient.proto" GrpcServices="Server">
+			<Link>Protos\servertoclient.proto</Link>
+		</Protobuf>
+	</ItemGroup>
+
+</Project>
