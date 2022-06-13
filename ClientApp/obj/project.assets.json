@@ -273,6 +273,16 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
+      "Consignment/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Consignment.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Consignment.dll": {}
+        }
+      },
       "Draughts.ClientApp.Protobuf/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -691,6 +701,11 @@
         "version.txt"
       ]
     },
+    "Consignment/1.0.0": {
+      "type": "project",
+      "path": "../Consignment/Consignment.csproj",
+      "msbuildProject": "../Consignment/Consignment.csproj"
+    },
     "Draughts.ClientApp.Protobuf/1.0.0": {
       "type": "project",
       "path": "../Draughts.ClientApp.Protobuf/Draughts.ClientApp.Protobuf.csproj",
@@ -699,6 +714,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0-windows7.0": [
+      "Consignment >= 1.0.0",
       "Draughts.ClientApp.Protobuf >= 1.0.0"
     ]
   },
@@ -729,6 +745,9 @@
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
           "projectReferences": {
+            "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Consignment\\Consignment.csproj": {
+              "projectPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Consignment\\Consignment.csproj"
+            },
             "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\Draughts.ClientApp.Protobuf.csproj": {
               "projectPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Draughts.ClientApp.Protobuf\\Draughts.ClientApp.Protobuf.csproj"
             }

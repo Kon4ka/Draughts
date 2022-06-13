@@ -9,3 +9,4 @@ C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Co
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.dll
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\ref\Draughts.Core.dll
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.pdb
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Core\obj\Debug\net5.0\Draughts.Core.csproj.AssemblyReference.cache

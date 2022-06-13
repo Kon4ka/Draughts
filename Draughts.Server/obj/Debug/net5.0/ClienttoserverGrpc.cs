@@ -46,6 +46,9 @@ namespace Draughts.Grpc {
     static readonly grpc::Marshaller<global::Draughts.Grpc.IdentificationResponse> __Marshaller_clienttoserver_IdentificationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentificationResponse.Parser));
     static readonly grpc::Marshaller<global::Draughts.Grpc.IsFree> __Marshaller_clienttoserver_IsFree = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IsFree.Parser));
     static readonly grpc::Marshaller<global::Draughts.Grpc.IdentName> __Marshaller_clienttoserver_IdentName = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentName.Parser));
+    static readonly grpc::Marshaller<global::Draughts.Grpc.GameInfo> __Marshaller_clienttoserver_GameInfo = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.GameInfo.Parser));
+    static readonly grpc::Marshaller<global::Draughts.Grpc.Move> __Marshaller_clienttoserver_Move = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.Move.Parser));
+    static readonly grpc::Marshaller<global::Draughts.Grpc.IsCorrect> __Marshaller_clienttoserver_IsCorrect = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IsCorrect.Parser));
 
     static readonly grpc::Method<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse> __Method_Identification = new grpc::Method<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse>(
         grpc::MethodType.Unary,
@@ -61,12 +64,19 @@ namespace Draughts.Grpc {
         __Marshaller_clienttoserver_IsFree,
         __Marshaller_clienttoserver_IdentificationResponse);
 
-    static readonly grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName> __Method_NewRandomGame = new grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName>(
+    static readonly grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.GameInfo> __Method_NewRandomGame = new grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.GameInfo>(
         grpc::MethodType.Unary,
         __ServiceName,
         "NewRandomGame",
         __Marshaller_clienttoserver_IdentName,
-        __Marshaller_clienttoserver_IdentName);
+        __Marshaller_clienttoserver_GameInfo);
+
+    static readonly grpc::Method<global::Draughts.Grpc.Move, global::Draughts.Grpc.IsCorrect> __Method_SendAMoveToAnother = new grpc::Method<global::Draughts.Grpc.Move, global::Draughts.Grpc.IsCorrect>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SendAMoveToAnother",
+        __Marshaller_clienttoserver_Move,
+        __Marshaller_clienttoserver_IsCorrect);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -88,7 +98,12 @@ namespace Draughts.Grpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task<global::Draughts.Grpc.IdentName> NewRandomGame(global::Draughts.Grpc.IdentName request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Draughts.Grpc.GameInfo> NewRandomGame(global::Draughts.Grpc.IdentName request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Draughts.Grpc.IsCorrect> SendAMoveToAnother(global::Draughts.Grpc.Move request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -102,7 +117,8 @@ namespace Draughts.Grpc {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_Identification, serviceImpl.Identification)
           .AddMethod(__Method_IsPortFree, serviceImpl.IsPortFree)
-          .AddMethod(__Method_NewRandomGame, serviceImpl.NewRandomGame).Build();
+          .AddMethod(__Method_NewRandomGame, serviceImpl.NewRandomGame)
+          .AddMethod(__Method_SendAMoveToAnother, serviceImpl.SendAMoveToAnother).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -113,7 +129,8 @@ namespace Draughts.Grpc {
     {
       serviceBinder.AddMethod(__Method_Identification, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse>(serviceImpl.Identification));
       serviceBinder.AddMethod(__Method_IsPortFree, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IsFree, global::Draughts.Grpc.IdentificationResponse>(serviceImpl.IsPortFree));
-      serviceBinder.AddMethod(__Method_NewRandomGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName>(serviceImpl.NewRandomGame));
+      serviceBinder.AddMethod(__Method_NewRandomGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.GameInfo>(serviceImpl.NewRandomGame));
+      serviceBinder.AddMethod(__Method_SendAMoveToAnother, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.Move, global::Draughts.Grpc.IsCorrect>(serviceImpl.SendAMoveToAnother));
     }
 
   }

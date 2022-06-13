@@ -261,6 +261,16 @@
         "runtime": {
           "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
+      },
+      "Consignment/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/Consignment.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Consignment.dll": {}
+        }
       }
     }
   },
@@ -685,10 +695,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Consignment/1.0.0": {
+      "type": "project",
+      "path": "../Consignment/Consignment.csproj",
+      "msbuildProject": "../Consignment/Consignment.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Consignment >= 1.0.0",
       "Grpc.AspNetCore >= 2.34.0"
     ]
   },
@@ -718,7 +734,11 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Consignment\\Consignment.csproj": {
+              "projectPath": "C:\\Users\\Kon4ka\\source\\repos\\Draughts\\Consignment\\Consignment.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

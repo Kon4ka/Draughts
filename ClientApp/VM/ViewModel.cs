@@ -13,6 +13,7 @@ using System.Threading;
 using ClientApp.Grpc;
 using System.Windows;
 using System.Security.Cryptography;
+using Containers;
 //using System.Windows.Forms;
 
 namespace ClientApp.VM
@@ -20,6 +21,7 @@ namespace ClientApp.VM
     internal sealed class ViewM1 : VMBase
     {
         private ICommand _curCommand;
+        private ICommand _moveCommand;
         private bool _canExecute = true;
         private bool _identification_success = false;
 
@@ -32,13 +34,16 @@ namespace ClientApp.VM
         private string _authStatus = "Авторизуйся плиз";
         private string _login = "User1";
         private string _password = "sobaka";
+        private Consignment _currentGame;           //first - me, second - opponent
         private int port;
+        private string guid;
         private MD5 md;
         private Random rd;
 
-        internal ViewM1(DraughtsCallbackServiceImpl callback)
+        internal ViewM1(DraughtsCallbackServiceImpl callback, int port)
         {
             channel = GrpcChannel.ForAddress("https://localhost:5001");
+            _currentGame = new Consignment();
             client = new DraughtsService.DraughtsServiceClient(channel);
             AuthStatus = "Авторизуйся плиз";
 
@@ -49,16 +54,22 @@ namespace ClientApp.VM
                 AuthStatus = message;
             };
             callback.AgreeForNewGame += Callback_AgreeForNewGame;
+            callback.AddOpponentMove += Callback_AddOpponentMove;
             md = MD5.Create();
             rd = new Random();
+            this.port = port;
             _ = IdentificationSendAsync();
-            port = 5050 + (rd.Next() % 10);
-
         }
 
+        private void Callback_AddOpponentMove(string move, string guid, string name)
+        {
+            if (this.guid is null) this.guid = guid; 
+            if (guid == this.guid)
+                _currentGame.AddMoveSecond(move);
+        }
         private bool Callback_AgreeForNewGame(string obj)
         {
-            return ShowMess("Хотите сыграть с" + (string)obj);
+            return ShowMess("Хотите сыграть с " + (string)obj);
         }
 
         #region Fields
@@ -125,22 +136,14 @@ namespace ClientApp.VM
 
         public ICommand IdentificationCommand =>
         _curCommand ??= new Relay(async _ => await NewRandomGame(), _ => CanExecute);
+        public ICommand MoveCommand =>
+        _moveCommand ??= new Relay(async _ => await MakeAMove(), _ => CanExecute);
 
 
         private async Task IdentificationSendAsync(CancellationToken token = default)
-        {/*
-            using GrpcChannel channel = GrpcChannel.ForAddress("https://localhost:5001");
-            DraughtsService.DraughtsServiceClient client = new DraughtsService.DraughtsServiceClient(channel);*/
-            bool isFree = false;
-            while (!isFree)
-            {
-                port = 5050 + (rd.Next() % 10);
-                var res = await client.IsPortFreeAsync(new IsFree
-                {
-                    Port = (uint)port
-                });
-                isFree = res.Success;
-            }
+        {
+            _login = rd.Next().ToString();
+
             //Logic
             var reply = await client.IdentificationAsync(new IdentificationRequest
             {
@@ -158,14 +161,33 @@ namespace ClientApp.VM
                 Name = _login
             });
 
-            switch(reply.Name)
+            switch(reply.Opponent)
             {
                 case "-1": MessageBox.Show("Вы один"); break;
-                case ("-2"): MessageBox.Show("Все заняты"); break;
-                case ("-3"): MessageBox.Show("Игрок отказался"); break;
-                default:  MessageBox.Show("Начинаем..."); break;
+                case "-2": MessageBox.Show("Все заняты"); break;
+                case "-3": MessageBox.Show("Игрок отказался"); break;
+                default:   MessageBox.Show("Начинаем..."); break;
             }
+            guid = reply.Guid;
 
+        }
+
+        private async Task MakeAMove()
+        {
+            if (guid is not null)
+            {
+                var correct = await client.SendAMoveToAnotherAsync(new Move
+                {
+                    Name = _login,
+                    GameGuid = guid,
+                    Movement = "1x" + (rd.Next() % 10).ToString()
+                });
+
+                if (correct.Correct == "-2")
+                    MessageBox.Show("Не ваш ход");
+                if (correct.Correct == "0")
+                    MessageBox.Show("Неверный ход");
+            }
         }
     }
 }

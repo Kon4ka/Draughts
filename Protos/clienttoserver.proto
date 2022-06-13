@@ -22,8 +22,25 @@ message IdentName {
 	string name = 1;
 }
 
+message GameInfo {
+	string opponent = 1;
+	string guid = 2;
+}
+
+message Move {
+	string name = 1;
+	string gameGuid = 2;
+	string movement = 3;
+	string options = 4;
+}
+
+message IsCorrect {
+	string correct = 1;
+}
+
 service DraughtsService {
 	rpc Identification (IdentificationRequest) returns (IdentificationResponse);
 	rpc IsPortFree (IsFree) returns (IdentificationResponse);
-	rpc NewRandomGame (IdentName) returns (IdentName);
+	rpc NewRandomGame (IdentName) returns (GameInfo);
+	rpc SendAMoveToAnother (Move) returns (IsCorrect);
 }

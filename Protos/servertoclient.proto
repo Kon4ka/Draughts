@@ -14,7 +14,15 @@ message IAgreeForGame {
 	bool yesorno = 1;
 }
 
+message OthersMove {
+	string otherName = 1;
+	string YourGameGuid = 2;
+	string otherMovement = 3;
+	string otherOptions = 4;
+}
+
 service DraughtsCallbackService {
 	rpc IdentificationCallback(IdentificationRequestCallback) returns (google.protobuf.Empty);
 	rpc NewRandomGameAnother(IdentificationRequestCallback) returns (IAgreeForGame);
+	rpc TakeMoveFromAnother(OthersMove) returns (google.protobuf.Empty);
 }

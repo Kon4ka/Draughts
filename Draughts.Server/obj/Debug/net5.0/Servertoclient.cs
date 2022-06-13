@@ -27,17 +27,22 @@ namespace Draughts.Grpc {
             "ChRzZXJ2ZXJ0b2NsaWVudC5wcm90bxIOc2VydmVydG9jbGllbnQaG2dvb2ds",
             "ZS9wcm90b2J1Zi9lbXB0eS5wcm90byIwCh1JZGVudGlmaWNhdGlvblJlcXVl",
             "c3RDYWxsYmFjaxIPCgdtZXNzYWdlGAEgASgJIiAKDUlBZ3JlZUZvckdhbWUS",
-            "DwoHeWVzb3JubxgBIAEoCDLgAQoXRHJhdWdodHNDYWxsYmFja1NlcnZpY2US",
-            "XwoWSWRlbnRpZmljYXRpb25DYWxsYmFjaxItLnNlcnZlcnRvY2xpZW50Lklk",
-            "ZW50aWZpY2F0aW9uUmVxdWVzdENhbGxiYWNrGhYuZ29vZ2xlLnByb3RvYnVm",
-            "LkVtcHR5EmQKFE5ld1JhbmRvbUdhbWVBbm90aGVyEi0uc2VydmVydG9jbGll",
-            "bnQuSWRlbnRpZmljYXRpb25SZXF1ZXN0Q2FsbGJhY2saHS5zZXJ2ZXJ0b2Ns",
-            "aWVudC5JQWdyZWVGb3JHYW1lQhCqAg1EcmF1Z2h0cy5HcnBjYgZwcm90bzM="));
+            "DwoHeWVzb3JubxgBIAEoCCJiCgpPdGhlcnNNb3ZlEhEKCW90aGVyTmFtZRgB",
+            "IAEoCRIUCgxZb3VyR2FtZUd1aWQYAiABKAkSFQoNb3RoZXJNb3ZlbWVudBgD",
+            "IAEoCRIUCgxvdGhlck9wdGlvbnMYBCABKAkyqwIKF0RyYXVnaHRzQ2FsbGJh",
+            "Y2tTZXJ2aWNlEl8KFklkZW50aWZpY2F0aW9uQ2FsbGJhY2sSLS5zZXJ2ZXJ0",
+            "b2NsaWVudC5JZGVudGlmaWNhdGlvblJlcXVlc3RDYWxsYmFjaxoWLmdvb2ds",
+            "ZS5wcm90b2J1Zi5FbXB0eRJkChROZXdSYW5kb21HYW1lQW5vdGhlchItLnNl",
+            "cnZlcnRvY2xpZW50LklkZW50aWZpY2F0aW9uUmVxdWVzdENhbGxiYWNrGh0u",
+            "c2VydmVydG9jbGllbnQuSUFncmVlRm9yR2FtZRJJChNUYWtlTW92ZUZyb21B",
+            "bm90aGVyEhouc2VydmVydG9jbGllbnQuT3RoZXJzTW92ZRoWLmdvb2dsZS5w",
+            "cm90b2J1Zi5FbXB0eUIQqgINRHJhdWdodHMuR3JwY2IGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Draughts.Grpc.IdentificationRequestCallback), global::Draughts.Grpc.IdentificationRequestCallback.Parser, new[]{ "Message" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Draughts.Grpc.IAgreeForGame), global::Draughts.Grpc.IAgreeForGame.Parser, new[]{ "Yesorno" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Draughts.Grpc.IAgreeForGame), global::Draughts.Grpc.IAgreeForGame.Parser, new[]{ "Yesorno" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Draughts.Grpc.OthersMove), global::Draughts.Grpc.OthersMove.Parser, new[]{ "OtherName", "YourGameGuid", "OtherMovement", "OtherOptions" }, null, null, null, null)
           }));
     }
     #endregion
@@ -379,6 +384,286 @@ namespace Draughts.Grpc {
             break;
           case 8: {
             Yesorno = input.ReadBool();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class OthersMove : pb::IMessage<OthersMove>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<OthersMove> _parser = new pb::MessageParser<OthersMove>(() => new OthersMove());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<OthersMove> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Draughts.Grpc.ServertoclientReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OthersMove() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OthersMove(OthersMove other) : this() {
+      otherName_ = other.otherName_;
+      yourGameGuid_ = other.yourGameGuid_;
+      otherMovement_ = other.otherMovement_;
+      otherOptions_ = other.otherOptions_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public OthersMove Clone() {
+      return new OthersMove(this);
+    }
+
+    /// <summary>Field number for the "otherName" field.</summary>
+    public const int OtherNameFieldNumber = 1;
+    private string otherName_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OtherName {
+      get { return otherName_; }
+      set {
+        otherName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "YourGameGuid" field.</summary>
+    public const int YourGameGuidFieldNumber = 2;
+    private string yourGameGuid_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string YourGameGuid {
+      get { return yourGameGuid_; }
+      set {
+        yourGameGuid_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "otherMovement" field.</summary>
+    public const int OtherMovementFieldNumber = 3;
+    private string otherMovement_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OtherMovement {
+      get { return otherMovement_; }
+      set {
+        otherMovement_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "otherOptions" field.</summary>
+    public const int OtherOptionsFieldNumber = 4;
+    private string otherOptions_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string OtherOptions {
+      get { return otherOptions_; }
+      set {
+        otherOptions_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as OthersMove);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(OthersMove other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (OtherName != other.OtherName) return false;
+      if (YourGameGuid != other.YourGameGuid) return false;
+      if (OtherMovement != other.OtherMovement) return false;
+      if (OtherOptions != other.OtherOptions) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (OtherName.Length != 0) hash ^= OtherName.GetHashCode();
+      if (YourGameGuid.Length != 0) hash ^= YourGameGuid.GetHashCode();
+      if (OtherMovement.Length != 0) hash ^= OtherMovement.GetHashCode();
+      if (OtherOptions.Length != 0) hash ^= OtherOptions.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (OtherName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(OtherName);
+      }
+      if (YourGameGuid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(YourGameGuid);
+      }
+      if (OtherMovement.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(OtherMovement);
+      }
+      if (OtherOptions.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(OtherOptions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (OtherName.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(OtherName);
+      }
+      if (YourGameGuid.Length != 0) {
+        output.WriteRawTag(18);
+        output.WriteString(YourGameGuid);
+      }
+      if (OtherMovement.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(OtherMovement);
+      }
+      if (OtherOptions.Length != 0) {
+        output.WriteRawTag(34);
+        output.WriteString(OtherOptions);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (OtherName.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OtherName);
+      }
+      if (YourGameGuid.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(YourGameGuid);
+      }
+      if (OtherMovement.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OtherMovement);
+      }
+      if (OtherOptions.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(OtherOptions);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(OthersMove other) {
+      if (other == null) {
+        return;
+      }
+      if (other.OtherName.Length != 0) {
+        OtherName = other.OtherName;
+      }
+      if (other.YourGameGuid.Length != 0) {
+        YourGameGuid = other.YourGameGuid;
+      }
+      if (other.OtherMovement.Length != 0) {
+        OtherMovement = other.OtherMovement;
+      }
+      if (other.OtherOptions.Length != 0) {
+        OtherOptions = other.OtherOptions;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            OtherName = input.ReadString();
+            break;
+          }
+          case 18: {
+            YourGameGuid = input.ReadString();
+            break;
+          }
+          case 26: {
+            OtherMovement = input.ReadString();
+            break;
+          }
+          case 34: {
+            OtherOptions = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            OtherName = input.ReadString();
+            break;
+          }
+          case 18: {
+            YourGameGuid = input.ReadString();
+            break;
+          }
+          case 26: {
+            OtherMovement = input.ReadString();
+            break;
+          }
+          case 34: {
+            OtherOptions = input.ReadString();
             break;
           }
         }

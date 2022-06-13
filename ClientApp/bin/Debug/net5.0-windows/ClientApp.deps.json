@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v5.0": {
       "ClientApp/1.0.0": {
         "dependencies": {
+          "Consignment": "1.0.0",
           "Draughts.ClientApp.Protobuf": "1.0.0"
         },
         "runtime": {
@@ -186,6 +187,11 @@
       },
       "Microsoft.Extensions.Primitives/3.0.3": {},
       "System.Memory/4.5.3": {},
+      "Consignment/1.0.0": {
+        "runtime": {
+          "Consignment.dll": {}
+        }
+      },
       "Draughts.ClientApp.Protobuf/1.0.0": {
         "dependencies": {
           "Google.Protobuf": "3.20.1",
@@ -351,6 +357,11 @@
       "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "path": "system.memory/4.5.3",
       "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "Consignment/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Draughts.ClientApp.Protobuf/1.0.0": {
       "type": "project",

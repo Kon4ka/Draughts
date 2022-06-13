@@ -1,0 +1,12 @@
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\bin\Debug\net5.0\Consignment.deps.json
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\bin\Debug\net5.0\Consignment.dll
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\bin\Debug\net5.0\ref\Consignment.dll
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\bin\Debug\net5.0\Consignment.pdb
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\Consignment.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\Consignment.AssemblyInfoInputs.cache
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\Consignment.AssemblyInfo.cs
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\Consignment.csproj.CoreCompileInputs.cache
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\Consignment.dll
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\ref\Consignment.dll
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\Consignment.pdb
+C:\Users\Kon4ka\source\repos\Draughts\Consignment\obj\Debug\net5.0\Consignment.csproj.AssemblyReference.cache

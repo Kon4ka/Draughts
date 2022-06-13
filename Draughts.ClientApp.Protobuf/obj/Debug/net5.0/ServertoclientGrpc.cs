@@ -51,6 +51,8 @@ namespace Draughts.Grpc {
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Draughts.Grpc.IAgreeForGame> __Marshaller_servertoclient_IAgreeForGame = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IAgreeForGame.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Draughts.Grpc.OthersMove> __Marshaller_servertoclient_OthersMove = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.OthersMove.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty> __Method_IdentificationCallback = new grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty>(
@@ -67,6 +69,14 @@ namespace Draughts.Grpc {
         "NewRandomGameAnother",
         __Marshaller_servertoclient_IdentificationRequestCallback,
         __Marshaller_servertoclient_IAgreeForGame);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Draughts.Grpc.OthersMove, global::Google.Protobuf.WellKnownTypes.Empty> __Method_TakeMoveFromAnother = new grpc::Method<global::Draughts.Grpc.OthersMove, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TakeMoveFromAnother",
+        __Marshaller_servertoclient_OthersMove,
+        __Marshaller_google_protobuf_Empty);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -90,6 +100,12 @@ namespace Draughts.Grpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> TakeMoveFromAnother(global::Draughts.Grpc.OthersMove request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -99,7 +115,8 @@ namespace Draughts.Grpc {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_IdentificationCallback, serviceImpl.IdentificationCallback)
-          .AddMethod(__Method_NewRandomGameAnother, serviceImpl.NewRandomGameAnother).Build();
+          .AddMethod(__Method_NewRandomGameAnother, serviceImpl.NewRandomGameAnother)
+          .AddMethod(__Method_TakeMoveFromAnother, serviceImpl.TakeMoveFromAnother).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -111,6 +128,7 @@ namespace Draughts.Grpc {
     {
       serviceBinder.AddMethod(__Method_IdentificationCallback, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.IdentificationCallback));
       serviceBinder.AddMethod(__Method_NewRandomGameAnother, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentificationRequestCallback, global::Draughts.Grpc.IAgreeForGame>(serviceImpl.NewRandomGameAnother));
+      serviceBinder.AddMethod(__Method_TakeMoveFromAnother, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.OthersMove, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.TakeMoveFromAnother));
     }
 
   }

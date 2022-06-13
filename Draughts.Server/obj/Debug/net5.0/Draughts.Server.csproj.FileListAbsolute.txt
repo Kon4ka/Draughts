@@ -14,6 +14,9 @@ C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\bin\Debug\net5.0\Grpc.Core
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\bin\Debug\net5.0\Grpc.Net.Client.dll
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\bin\Debug\net5.0\Grpc.Net.ClientFactory.dll
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\bin\Debug\net5.0\Grpc.Net.Common.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\bin\Debug\net5.0\Consignment.dll
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\bin\Debug\net5.0\Consignment.pdb
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.Server.csproj.AssemblyReference.cache
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.Server.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.Server.AssemblyInfoInputs.cache
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.Server.AssemblyInfo.cs
@@ -28,4 +31,3 @@ C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\ref\Draughts.Server.dll
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.Server.pdb
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.Server.genruntimeconfig.cache
-C:\Users\Kon4ka\source\repos\Draughts\Draughts.Server\obj\Debug\net5.0\Draughts.Server.csproj.AssemblyReference.cache

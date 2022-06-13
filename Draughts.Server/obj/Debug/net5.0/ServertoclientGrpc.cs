@@ -45,6 +45,7 @@ namespace Draughts.Grpc {
     static readonly grpc::Marshaller<global::Draughts.Grpc.IdentificationRequestCallback> __Marshaller_servertoclient_IdentificationRequestCallback = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentificationRequestCallback.Parser));
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
     static readonly grpc::Marshaller<global::Draughts.Grpc.IAgreeForGame> __Marshaller_servertoclient_IAgreeForGame = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IAgreeForGame.Parser));
+    static readonly grpc::Marshaller<global::Draughts.Grpc.OthersMove> __Marshaller_servertoclient_OthersMove = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.OthersMove.Parser));
 
     static readonly grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty> __Method_IdentificationCallback = new grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty>(
         grpc::MethodType.Unary,
@@ -59,6 +60,13 @@ namespace Draughts.Grpc {
         "NewRandomGameAnother",
         __Marshaller_servertoclient_IdentificationRequestCallback,
         __Marshaller_servertoclient_IAgreeForGame);
+
+    static readonly grpc::Method<global::Draughts.Grpc.OthersMove, global::Google.Protobuf.WellKnownTypes.Empty> __Method_TakeMoveFromAnother = new grpc::Method<global::Draughts.Grpc.OthersMove, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "TakeMoveFromAnother",
+        __Marshaller_servertoclient_OthersMove,
+        __Marshaller_google_protobuf_Empty);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -120,6 +128,22 @@ namespace Draughts.Grpc {
       public virtual grpc::AsyncUnaryCall<global::Draughts.Grpc.IAgreeForGame> NewRandomGameAnotherAsync(global::Draughts.Grpc.IdentificationRequestCallback request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_NewRandomGameAnother, null, options, request);
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty TakeMoveFromAnother(global::Draughts.Grpc.OthersMove request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TakeMoveFromAnother(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty TakeMoveFromAnother(global::Draughts.Grpc.OthersMove request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_TakeMoveFromAnother, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> TakeMoveFromAnotherAsync(global::Draughts.Grpc.OthersMove request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TakeMoveFromAnotherAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> TakeMoveFromAnotherAsync(global::Draughts.Grpc.OthersMove request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_TakeMoveFromAnother, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override DraughtsCallbackServiceClient NewInstance(ClientBaseConfiguration configuration)

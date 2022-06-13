@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32407.337
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draughts.Core", "Draughts.Core\Draughts.Core.csproj", "{66365198-4718-4824-97D4-7C7FD528875B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draughts.Core", "Draughts.Core\Draughts.Core.csproj", "{66365198-4718-4824-97D4-7C7FD528875B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draughts.Server", "Draughts.Server\Draughts.Server.csproj", "{E9397678-5365-42C7-8DF6-418F1FCB60F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientApp", "ClientApp\ClientApp.csproj", "{2382FA6F-070C-4A4C-92AC-F444546FC27A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientApp", "ClientApp\ClientApp.csproj", "{2382FA6F-070C-4A4C-92AC-F444546FC27A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draughts.ClientApp.Protobuf", "Draughts.ClientApp.Protobuf\Draughts.ClientApp.Protobuf.csproj", "{FDA18486-921E-4FFB-993E-0DB01BBAE00D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draughts.ClientApp.Protobuf", "Draughts.ClientApp.Protobuf\Draughts.ClientApp.Protobuf.csproj", "{FDA18486-921E-4FFB-993E-0DB01BBAE00D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Consignment", "Consignment\Consignment.csproj", "{873F7FDF-AE3C-449B-91C4-566FF68FE3A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{FDA18486-921E-4FFB-993E-0DB01BBAE00D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDA18486-921E-4FFB-993E-0DB01BBAE00D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDA18486-921E-4FFB-993E-0DB01BBAE00D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{873F7FDF-AE3C-449B-91C4-566FF68FE3A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{873F7FDF-AE3C-449B-91C4-566FF68FE3A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{873F7FDF-AE3C-449B-91C4-566FF68FE3A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{873F7FDF-AE3C-449B-91C4-566FF68FE3A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

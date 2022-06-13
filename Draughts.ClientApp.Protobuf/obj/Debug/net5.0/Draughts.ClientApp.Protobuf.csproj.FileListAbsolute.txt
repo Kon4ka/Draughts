@@ -9,3 +9,4 @@ C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.dll
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\ref\Draughts.ClientApp.Protobuf.dll
 C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.pdb
+C:\Users\Kon4ka\source\repos\Draughts\Draughts.ClientApp.Protobuf\obj\Debug\net5.0\Draughts.ClientApp.Protobuf.csproj.AssemblyReference.cache

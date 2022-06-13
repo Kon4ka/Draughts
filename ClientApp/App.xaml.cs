@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using ClientApp.Grpc;
 using ClientApp.VM;
+using Draughts.Grpc;
+using Grpc.Net.Client;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
@@ -12,10 +15,26 @@ namespace ClientApp
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            GrpcChannel channel = GrpcChannel.ForAddress("https://localhost:5001");
+            DraughtsService.DraughtsServiceClient client = new DraughtsService.DraughtsServiceClient(channel);
+            Random rd = new Random();
+            int port = 5055;
+
             ViewM1.ShowMess += MessageB;
             Current.ShutdownMode = ShutdownMode.OnMainWindowClose;
 
-            var host = CreateHostBuilder(e.Args)
+            bool isFree = false;
+            while (!isFree)
+            {
+                port = 5050 + (rd.Next() % 10);
+                var res = client.IsPortFree(new IsFree
+                {
+                    Port = (uint)port
+                });
+                isFree = res.Success;
+            }
+
+            var host = CreateHostBuilder(e.Args, port)
                 .Build();
 
             var callbackService = host.Services.GetService(typeof(DraughtsCallbackServiceImpl))
@@ -25,7 +44,7 @@ namespace ClientApp
 
             (Current.MainWindow = new MainWindow
             {
-                DataContext = new ViewM1(callbackService)
+                DataContext = new ViewM1(callbackService, port)
             }).Show();
         }
 
@@ -42,16 +61,16 @@ namespace ClientApp
 
         }
 
-        private IHostBuilder CreateHostBuilder(string[] args)
+        private IHostBuilder CreateHostBuilder(string[] args, int port)
         {
-            string[] urls = new string[50];
+/*            string[] urls = new string[50];
             for (int i = 5050; i < 5050 + 50; i++)
-                urls[i-5050] = $"http://127.0.0.1:{i}";
+                urls[i-5050] = $"http://127.0.0.1:{i}";*/
             return Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
 
-                    webBuilder.UseUrls(urls);
+                    webBuilder.UseUrls($"http://127.0.0.1:{port}");
                     webBuilder.UseStartup<Startup>();
                 });
         }

@@ -14,6 +14,7 @@ namespace ClientApp.Grpc
     {
 
         public event Action<string> Identified;
+        public event Action<string, string, string> AddOpponentMove;
         public event Predicate<string> AgreeForNewGame;
 
         public override Task<Empty> IdentificationCallback(IdentificationRequestCallback request, ServerCallContext context)
@@ -28,6 +29,13 @@ namespace ClientApp.Grpc
             var ans = AgreeForNewGame?.Invoke(request.Message);
 
             return Task.FromResult(new IAgreeForGame { Yesorno = ans.Value });
+        }
+
+        public override Task<Empty> TakeMoveFromAnother(OthersMove request, ServerCallContext context)
+        {
+            AddOpponentMove?.Invoke(request.OtherMovement, request.YourGameGuid, request.OtherName);
+
+            return Task.FromResult(new Empty());
         }
 
     }

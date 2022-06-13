@@ -53,6 +53,12 @@ namespace Draughts.Grpc {
     static readonly grpc::Marshaller<global::Draughts.Grpc.IsFree> __Marshaller_clienttoserver_IsFree = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IsFree.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Draughts.Grpc.IdentName> __Marshaller_clienttoserver_IdentName = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentName.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Draughts.Grpc.GameInfo> __Marshaller_clienttoserver_GameInfo = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.GameInfo.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Draughts.Grpc.Move> __Marshaller_clienttoserver_Move = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.Move.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Draughts.Grpc.IsCorrect> __Marshaller_clienttoserver_IsCorrect = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IsCorrect.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse> __Method_Identification = new grpc::Method<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse>(
@@ -71,12 +77,20 @@ namespace Draughts.Grpc {
         __Marshaller_clienttoserver_IdentificationResponse);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName> __Method_NewRandomGame = new grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName>(
+    static readonly grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.GameInfo> __Method_NewRandomGame = new grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.GameInfo>(
         grpc::MethodType.Unary,
         __ServiceName,
         "NewRandomGame",
         __Marshaller_clienttoserver_IdentName,
-        __Marshaller_clienttoserver_IdentName);
+        __Marshaller_clienttoserver_GameInfo);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Draughts.Grpc.Move, global::Draughts.Grpc.IsCorrect> __Method_SendAMoveToAnother = new grpc::Method<global::Draughts.Grpc.Move, global::Draughts.Grpc.IsCorrect>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "SendAMoveToAnother",
+        __Marshaller_clienttoserver_Move,
+        __Marshaller_clienttoserver_IsCorrect);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -152,24 +166,44 @@ namespace Draughts.Grpc {
         return CallInvoker.AsyncUnaryCall(__Method_IsPortFree, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Draughts.Grpc.IdentName NewRandomGame(global::Draughts.Grpc.IdentName request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Draughts.Grpc.GameInfo NewRandomGame(global::Draughts.Grpc.IdentName request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return NewRandomGame(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Draughts.Grpc.IdentName NewRandomGame(global::Draughts.Grpc.IdentName request, grpc::CallOptions options)
+      public virtual global::Draughts.Grpc.GameInfo NewRandomGame(global::Draughts.Grpc.IdentName request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_NewRandomGame, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Draughts.Grpc.IdentName> NewRandomGameAsync(global::Draughts.Grpc.IdentName request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Draughts.Grpc.GameInfo> NewRandomGameAsync(global::Draughts.Grpc.IdentName request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return NewRandomGameAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Draughts.Grpc.IdentName> NewRandomGameAsync(global::Draughts.Grpc.IdentName request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Draughts.Grpc.GameInfo> NewRandomGameAsync(global::Draughts.Grpc.IdentName request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_NewRandomGame, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Draughts.Grpc.IsCorrect SendAMoveToAnother(global::Draughts.Grpc.Move request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendAMoveToAnother(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Draughts.Grpc.IsCorrect SendAMoveToAnother(global::Draughts.Grpc.Move request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_SendAMoveToAnother, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Draughts.Grpc.IsCorrect> SendAMoveToAnotherAsync(global::Draughts.Grpc.Move request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return SendAMoveToAnotherAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Draughts.Grpc.IsCorrect> SendAMoveToAnotherAsync(global::Draughts.Grpc.Move request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_SendAMoveToAnother, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]

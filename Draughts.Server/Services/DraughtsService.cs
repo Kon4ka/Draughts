@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
-
+using Containers;
 using Draughts.Grpc;
 using System.Threading;
 using System;
@@ -29,8 +29,9 @@ namespace Draughts.Server.Services
             private readonly DraughtsCallbackService.DraughtsCallbackServiceClient _client;
             private byte[] _password;
             public State Status;
+            public string _login;
 
-            public DraughtsCallbackServiceClient(string address, byte[] pass)
+            public DraughtsCallbackServiceClient(string address, byte[] pass, string login)
             {
                 var unsafeHandler = new HttpClientHandler();
                 unsafeHandler.ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator;
@@ -40,6 +41,7 @@ namespace Draughts.Server.Services
                     HttpHandler = unsafeHandler
                 });
 
+                _login = login;
                 _client = new DraughtsCallbackService.DraughtsCallbackServiceClient(clientChannel);
                 _password = pass;
                 Status = State.Wait;
@@ -73,14 +75,24 @@ namespace Draughts.Server.Services
                 return answer.Yesorno;
 
             }
-            // TODO: add other requests...
+
+            public async Task TakeMoveFromAnotherAsync(string move, string guid, string name, CancellationToken token = default)
+            {
+                var answer = await _client.TakeMoveFromAnotherAsync(new OthersMove
+                {
+                    OtherMovement = move,
+                    YourGameGuid = guid,
+                    OtherName = name
+                });
+            }
+                    // TODO: add other requests...
 
         }
 
         class Pair
         {
-            DraughtsCallbackServiceClient one;
-            DraughtsCallbackServiceClient two;
+            public DraughtsCallbackServiceClient one;
+            public DraughtsCallbackServiceClient two;
 
             public Pair(DraughtsCallbackServiceClient o, DraughtsCallbackServiceClient t)
             {
@@ -88,12 +100,13 @@ namespace Draughts.Server.Services
                 two = t;
             }
         }
-
+       
         #endregion
 
         private readonly ILogger<DraughtsServiceImpl> _logger;
         private readonly Dictionary<string, DraughtsCallbackServiceClient> _activeUsers;
-        private readonly Dictionary<string, Pair> _games;
+        private readonly Dictionary<string, Pair> _games;                                   //Value - one - first, two - second
+        private readonly Dictionary<string, Consignment> _consignment;
         private readonly List<uint> _ports;
         public DraughtsServiceImpl(ILogger<DraughtsServiceImpl> logger)
         {
@@ -101,6 +114,7 @@ namespace Draughts.Server.Services
             _activeUsers = new Dictionary<string, DraughtsCallbackServiceClient>();
             _ports = new List<uint>();
             _games = new Dictionary<string, Pair>();
+            _consignment = new Dictionary<string, Consignment>();
         }
 
         public override Task<IdentificationResponse> IsPortFree(IsFree request, ServerCallContext context)
@@ -132,7 +146,7 @@ namespace Draughts.Server.Services
                     Success = false  //TODO: Remove mock
                 };
             }
-            _activeUsers.Add(request.Name, new DraughtsCallbackServiceClient(request.Address, request.Password.ToByteArray()));
+            _activeUsers.Add(request.Name, new DraughtsCallbackServiceClient(request.Address, request.Password.ToByteArray(), request.Name));
             var strs = request.Address.Split(":");
             _ports.Add(Convert.ToUInt32(strs[1]));
 
@@ -144,20 +158,20 @@ namespace Draughts.Server.Services
             };
         }
 
-        public async override Task<IdentName> NewRandomGame(IdentName request, ServerCallContext context)
+        public async override Task<GameInfo> NewRandomGame(IdentName request, ServerCallContext context)
         {
             if (_activeUsers.Count == 0)
             {
-                return new IdentName
+                return new GameInfo
                 {
-                    Name = "-1"     //Nobody at server
+                    Opponent = "-1"     //Nobody at server
                 };
             }
             string anotherName = "";
             DraughtsCallbackServiceClient another = null;
             foreach (var client in _activeUsers)
             {
-                if (client.Value.Status == State.Wait && client.Key == request.Name)
+                if (client.Value.Status == State.Wait && client.Key != request.Name)
                 {
                     another = client.Value;
                     anotherName = client.Key;
@@ -166,33 +180,70 @@ namespace Draughts.Server.Services
 
             if (another is null)
             {
-                return new IdentName
+                return new GameInfo
                 {
-                    Name = "-2" //All Plays
+                    Opponent = "-2" //All Plays
                 };
             }
             var agree = await another.NewRandomGameAnotherAsync(request.Name);
 
             if (agree)
             {
-                _games[Guid.NewGuid().ToString("N")] = new Pair(_activeUsers[request.Name], another);
-                return new IdentName
+                var id = Guid.NewGuid().ToString("N");
+                _games[id] = new Pair(_activeUsers[request.Name], another);
+                _consignment[id] = new Consignment();
+                return new GameInfo
                 {
-                    Name = anotherName
+                    Opponent = anotherName,
+                    Guid = id
                 };
             }
             else
             {
-                return new IdentName
+                return new GameInfo
                 {
-                    Name = "-3"         //Dissagree to play
+                    Opponent = "-3"         //Dissagree to play
                 };
             }
-
-/*            return new IdentName
-            {
-            };*/
-
         }
+        public async override Task<IsCorrect> SendAMoveToAnother(Move request, ServerCallContext context)
+        {
+            if (!ValidMove(request.Movement))
+            {
+                return new IsCorrect { Correct = "0"};
+            }
+
+            if (_games[request.GameGuid].one == _activeUsers[request.Name])
+            {
+                if (_consignment[request.GameGuid]._firstMoves.Count != _consignment[request.GameGuid]._secondMoves.Count)
+                    return new IsCorrect
+                    {
+                        Correct = "-2"      //not yor part
+                    };
+                _consignment[request.GameGuid].AddMoveFirst(request.Movement);
+                await _games[request.GameGuid].two.TakeMoveFromAnotherAsync(request.Movement, request.GameGuid, request.Name);
+            }
+            else
+            {
+                if (_consignment[request.GameGuid]._firstMoves.Count - 1 != _consignment[request.GameGuid]._secondMoves.Count)
+                    return new IsCorrect
+                    {
+                        Correct = "-2"      //not yor part
+                    };
+                _consignment[request.GameGuid].AddMoveSecond(request.Movement);
+                await _games[request.GameGuid].one.TakeMoveFromAnotherAsync(request.Movement, request.GameGuid, request.Name);
+            }
+
+            return new IsCorrect
+            {
+                Correct = "1"
+            };
+        }
+
+        private bool ValidMove(string move)
+        {
+            return true;
+        }
+
     }
 }
