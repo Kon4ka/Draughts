@@ -44,6 +44,8 @@ namespace Draughts.Grpc {
 
     static readonly grpc::Marshaller<global::Draughts.Grpc.IdentificationRequest> __Marshaller_clienttoserver_IdentificationRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentificationRequest.Parser));
     static readonly grpc::Marshaller<global::Draughts.Grpc.IdentificationResponse> __Marshaller_clienttoserver_IdentificationResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentificationResponse.Parser));
+    static readonly grpc::Marshaller<global::Draughts.Grpc.IsFree> __Marshaller_clienttoserver_IsFree = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IsFree.Parser));
+    static readonly grpc::Marshaller<global::Draughts.Grpc.IdentName> __Marshaller_clienttoserver_IdentName = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentName.Parser));
 
     static readonly grpc::Method<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse> __Method_Identification = new grpc::Method<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse>(
         grpc::MethodType.Unary,
@@ -51,6 +53,20 @@ namespace Draughts.Grpc {
         "Identification",
         __Marshaller_clienttoserver_IdentificationRequest,
         __Marshaller_clienttoserver_IdentificationResponse);
+
+    static readonly grpc::Method<global::Draughts.Grpc.IsFree, global::Draughts.Grpc.IdentificationResponse> __Method_IsPortFree = new grpc::Method<global::Draughts.Grpc.IsFree, global::Draughts.Grpc.IdentificationResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "IsPortFree",
+        __Marshaller_clienttoserver_IsFree,
+        __Marshaller_clienttoserver_IdentificationResponse);
+
+    static readonly grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName> __Method_NewRandomGame = new grpc::Method<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "NewRandomGame",
+        __Marshaller_clienttoserver_IdentName,
+        __Marshaller_clienttoserver_IdentName);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -67,6 +83,16 @@ namespace Draughts.Grpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::Draughts.Grpc.IdentificationResponse> IsPortFree(global::Draughts.Grpc.IsFree request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      public virtual global::System.Threading.Tasks.Task<global::Draughts.Grpc.IdentName> NewRandomGame(global::Draughts.Grpc.IdentName request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -74,7 +100,9 @@ namespace Draughts.Grpc {
     public static grpc::ServerServiceDefinition BindService(DraughtsServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Identification, serviceImpl.Identification).Build();
+          .AddMethod(__Method_Identification, serviceImpl.Identification)
+          .AddMethod(__Method_IsPortFree, serviceImpl.IsPortFree)
+          .AddMethod(__Method_NewRandomGame, serviceImpl.NewRandomGame).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -84,6 +112,8 @@ namespace Draughts.Grpc {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, DraughtsServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_Identification, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentificationRequest, global::Draughts.Grpc.IdentificationResponse>(serviceImpl.Identification));
+      serviceBinder.AddMethod(__Method_IsPortFree, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IsFree, global::Draughts.Grpc.IdentificationResponse>(serviceImpl.IsPortFree));
+      serviceBinder.AddMethod(__Method_NewRandomGame, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentName, global::Draughts.Grpc.IdentName>(serviceImpl.NewRandomGame));
     }
 
   }

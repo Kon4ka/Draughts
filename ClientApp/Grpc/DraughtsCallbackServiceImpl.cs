@@ -14,12 +14,20 @@ namespace ClientApp.Grpc
     {
 
         public event Action<string> Identified;
+        public event Predicate<string> AgreeForNewGame;
 
         public override Task<Empty> IdentificationCallback(IdentificationRequestCallback request, ServerCallContext context)
         {
             Identified?.Invoke(request.Message);
 
             return Task.FromResult(new Empty());
+        }
+
+        public override Task<IAgreeForGame> NewRandomGameAnother(IdentificationRequestCallback request, ServerCallContext context)
+        {
+            var ans = AgreeForNewGame?.Invoke(request.Message);
+
+            return Task.FromResult(new IAgreeForGame { Yesorno = ans.Value });
         }
 
     }

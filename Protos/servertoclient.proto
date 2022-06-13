@@ -10,6 +10,11 @@ message IdentificationRequestCallback {
 	string message = 1;
 }
 
+message IAgreeForGame {
+	bool yesorno = 1;
+}
+
 service DraughtsCallbackService {
 	rpc IdentificationCallback(IdentificationRequestCallback) returns (google.protobuf.Empty);
+	rpc NewRandomGameAnother(IdentificationRequestCallback) returns (IAgreeForGame);
 }

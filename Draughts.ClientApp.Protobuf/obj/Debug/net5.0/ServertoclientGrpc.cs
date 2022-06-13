@@ -49,6 +49,8 @@ namespace Draughts.Grpc {
     static readonly grpc::Marshaller<global::Draughts.Grpc.IdentificationRequestCallback> __Marshaller_servertoclient_IdentificationRequestCallback = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IdentificationRequestCallback.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Draughts.Grpc.IAgreeForGame> __Marshaller_servertoclient_IAgreeForGame = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Draughts.Grpc.IAgreeForGame.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty> __Method_IdentificationCallback = new grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty>(
@@ -57,6 +59,14 @@ namespace Draughts.Grpc {
         "IdentificationCallback",
         __Marshaller_servertoclient_IdentificationRequestCallback,
         __Marshaller_google_protobuf_Empty);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Draughts.Grpc.IAgreeForGame> __Method_NewRandomGameAnother = new grpc::Method<global::Draughts.Grpc.IdentificationRequestCallback, global::Draughts.Grpc.IAgreeForGame>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "NewRandomGameAnother",
+        __Marshaller_servertoclient_IdentificationRequestCallback,
+        __Marshaller_servertoclient_IAgreeForGame);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -74,6 +84,12 @@ namespace Draughts.Grpc {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Draughts.Grpc.IAgreeForGame> NewRandomGameAnother(global::Draughts.Grpc.IdentificationRequestCallback request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -82,7 +98,8 @@ namespace Draughts.Grpc {
     public static grpc::ServerServiceDefinition BindService(DraughtsCallbackServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_IdentificationCallback, serviceImpl.IdentificationCallback).Build();
+          .AddMethod(__Method_IdentificationCallback, serviceImpl.IdentificationCallback)
+          .AddMethod(__Method_NewRandomGameAnother, serviceImpl.NewRandomGameAnother).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -93,6 +110,7 @@ namespace Draughts.Grpc {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, DraughtsCallbackServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_IdentificationCallback, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentificationRequestCallback, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.IdentificationCallback));
+      serviceBinder.AddMethod(__Method_NewRandomGameAnother, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Draughts.Grpc.IdentificationRequestCallback, global::Draughts.Grpc.IAgreeForGame>(serviceImpl.NewRandomGameAnother));
     }
 
   }

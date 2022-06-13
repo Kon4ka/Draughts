@@ -22,6 +22,7 @@ C:\Users\Kon4ka\source\repos\Draughts\ClientApp\bin\Debug\net5.0-windows\runtime
 C:\Users\Kon4ka\source\repos\Draughts\ClientApp\bin\Debug\net5.0-windows\runtimes\win-x86\native\grpc_csharp_ext.x86.dll
 C:\Users\Kon4ka\source\repos\Draughts\ClientApp\bin\Debug\net5.0-windows\Draughts.ClientApp.Protobuf.dll
 C:\Users\Kon4ka\source\repos\Draughts\ClientApp\bin\Debug\net5.0-windows\Draughts.ClientApp.Protobuf.pdb
+C:\Users\Kon4ka\source\repos\Draughts\ClientApp\obj\Debug\net5.0-windows\ClientApp.csproj.AssemblyReference.cache
 C:\Users\Kon4ka\source\repos\Draughts\ClientApp\obj\Debug\net5.0-windows\MainWindow.g.cs
 C:\Users\Kon4ka\source\repos\Draughts\ClientApp\obj\Debug\net5.0-windows\App.g.cs
 C:\Users\Kon4ka\source\repos\Draughts\ClientApp\obj\Debug\net5.0-windows\ClientApp_Content.g.cs

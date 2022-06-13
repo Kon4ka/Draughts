@@ -26,14 +26,18 @@ namespace Draughts.Grpc {
           string.Concat(
             "ChRzZXJ2ZXJ0b2NsaWVudC5wcm90bxIOc2VydmVydG9jbGllbnQaG2dvb2ds",
             "ZS9wcm90b2J1Zi9lbXB0eS5wcm90byIwCh1JZGVudGlmaWNhdGlvblJlcXVl",
-            "c3RDYWxsYmFjaxIPCgdtZXNzYWdlGAEgASgJMnoKF0RyYXVnaHRzQ2FsbGJh",
-            "Y2tTZXJ2aWNlEl8KFklkZW50aWZpY2F0aW9uQ2FsbGJhY2sSLS5zZXJ2ZXJ0",
-            "b2NsaWVudC5JZGVudGlmaWNhdGlvblJlcXVlc3RDYWxsYmFjaxoWLmdvb2ds",
-            "ZS5wcm90b2J1Zi5FbXB0eUIQqgINRHJhdWdodHMuR3JwY2IGcHJvdG8z"));
+            "c3RDYWxsYmFjaxIPCgdtZXNzYWdlGAEgASgJIiAKDUlBZ3JlZUZvckdhbWUS",
+            "DwoHeWVzb3JubxgBIAEoCDLgAQoXRHJhdWdodHNDYWxsYmFja1NlcnZpY2US",
+            "XwoWSWRlbnRpZmljYXRpb25DYWxsYmFjaxItLnNlcnZlcnRvY2xpZW50Lklk",
+            "ZW50aWZpY2F0aW9uUmVxdWVzdENhbGxiYWNrGhYuZ29vZ2xlLnByb3RvYnVm",
+            "LkVtcHR5EmQKFE5ld1JhbmRvbUdhbWVBbm90aGVyEi0uc2VydmVydG9jbGll",
+            "bnQuSWRlbnRpZmljYXRpb25SZXF1ZXN0Q2FsbGJhY2saHS5zZXJ2ZXJ0b2Ns",
+            "aWVudC5JQWdyZWVGb3JHYW1lQhCqAg1EcmF1Z2h0cy5HcnBjYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::Draughts.Grpc.IdentificationRequestCallback), global::Draughts.Grpc.IdentificationRequestCallback.Parser, new[]{ "Message" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Draughts.Grpc.IdentificationRequestCallback), global::Draughts.Grpc.IdentificationRequestCallback.Parser, new[]{ "Message" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Draughts.Grpc.IAgreeForGame), global::Draughts.Grpc.IAgreeForGame.Parser, new[]{ "Yesorno" }, null, null, null, null)
           }));
     }
     #endregion
@@ -203,6 +207,178 @@ namespace Draughts.Grpc {
             break;
           case 10: {
             Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class IAgreeForGame : pb::IMessage<IAgreeForGame>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<IAgreeForGame> _parser = new pb::MessageParser<IAgreeForGame>(() => new IAgreeForGame());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<IAgreeForGame> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Draughts.Grpc.ServertoclientReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public IAgreeForGame() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public IAgreeForGame(IAgreeForGame other) : this() {
+      yesorno_ = other.yesorno_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public IAgreeForGame Clone() {
+      return new IAgreeForGame(this);
+    }
+
+    /// <summary>Field number for the "yesorno" field.</summary>
+    public const int YesornoFieldNumber = 1;
+    private bool yesorno_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Yesorno {
+      get { return yesorno_; }
+      set {
+        yesorno_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as IAgreeForGame);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(IAgreeForGame other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Yesorno != other.Yesorno) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Yesorno != false) hash ^= Yesorno.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Yesorno != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Yesorno);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Yesorno != false) {
+        output.WriteRawTag(8);
+        output.WriteBool(Yesorno);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Yesorno != false) {
+        size += 1 + 1;
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(IAgreeForGame other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Yesorno != false) {
+        Yesorno = other.Yesorno;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            Yesorno = input.ReadBool();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            Yesorno = input.ReadBool();
             break;
           }
         }

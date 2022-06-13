@@ -14,6 +14,16 @@ message IdentificationResponse {
 	bool success = 1;
 }
 
+message IsFree {
+	uint32 port = 1;
+}
+
+message IdentName {
+	string name = 1;
+}
+
 service DraughtsService {
 	rpc Identification (IdentificationRequest) returns (IdentificationResponse);
+	rpc IsPortFree (IsFree) returns (IdentificationResponse);
+	rpc NewRandomGame (IdentName) returns (IdentName);
 }
